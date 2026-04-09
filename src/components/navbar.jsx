@@ -1,6 +1,8 @@
 "use client"
 import Link from 'next/link'
 import React, { useState } from 'react'
+import Image from 'next/image'
+import NavLink from './navLink'
 
 const links = [
   { url: "/", title: "Home" },
@@ -13,27 +15,48 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className='h-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px:12 xl:px-48'>
-      <div className='hidden md:flex '>
+    <div className='h-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48'>
+      <div className='hidden md:flex gap-4 w-1/3'>
         {
-          links.map(link=>(
-          <Link href={link.url}>{link.title}</Link>
+          links.map(link => (
+            <NavLink link={link} key={link.title} />
           ))
         }
       </div>
-      
       {/*Logo*/}
-      <div className='md:hidden'>
+      <div className='md:hidden lg:flex w-1/3 justify-center'>
         <Link href="/"
-          className='text-sm bg-black rounded-md p-1 font-semibold flex item-center justify-center'>
+          className='text-sm bg-black rounded-md p-1 font-semibold flex items-center justify-center'>
           <span className='text-white mr-1'>Shut</span>
-          <spnan className="w-12 h-8 rounded bg-white text-black flex item-center justify-center">.pix</spnan>
+          <span className="w-12 h-8 rounded bg-white text-black flex items-center justify-center">.pix</span>
         </Link>
+      </div>
+      {/*Links*/}
+      <div className='hidden md:flex gap-4 w-1/3'>
+        <Link href="#">
+          <Image src="/github.png" alt="" width={24} height={24} />
+        </Link>
+        <Link href="#">
+          <Image src="/dribbble.png" alt="" width={24} height={24} />
+        </Link>
+        <Link href="#">
+          <Image src="/instagram.png" alt="" width={24} height={24} />
+        </Link>
+        <Link href="#">
+          <Image src="/facebook.png" alt="" width={24} height={24} />
+        </Link>
+        <Link href="#">
+          <Image src="/pinterest.png" alt="" width={24} height={24} />
+        </Link>
+        <Link href="#">
+          <Image src="/linkedin.png" alt="" width={24} height={24} />
+        </Link>
+
       </div>
 
       {/*Responsive menu*/}
       <div className='md:hidden'>
-        <button className='w-10 h-8 flex  flex-col justify-between z-50 relative' onClick={(()=>setOpen(!open))}>
+        <button className='w-10 h-8 flex  flex-col justify-between z-50 relative' onClick={(() => setOpen(!open))}>
           <div className='w-10 h-1 bg-white rounded'></div>
           <div className='w-10 h-1 bg-white rounded'></div>
           <div className='w-10 h-1 bg-white rounded'></div>
