@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
       <body className="min-h-full flex flex-col">
         <div className="w-screen h-screen bg-gradient-to-b from-blue-50 to bg-red-100">
        <div className="h-24"><Navbar/></div>
-       <div className="h-[calac(100vh-6rem)]">
+       <div className="h-[calc(100vh-6rem)]">
         {children}
         </div>
         </div>
