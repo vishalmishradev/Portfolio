@@ -24,9 +24,11 @@ export default function RootLayout({ children }) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <div className="w-screen h-screen bg-red-500">
-        <Navbar />
+        <div className="w-screen h-screen bg-gradient-to-b from-blue-50 to bg-red-100">
+       <div className="h-24"><Navbar/></div>
+       <div className="h-[calac(100vh-6rem)]">
         {children}
+        </div>
         </div>
         </body>
     </html>
